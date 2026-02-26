@@ -3660,9 +3660,8 @@ return Textbox
 end
 end
 
--- Settings page without SubPages and without Tween settings
 Library.CreateSettingsPage = function(self, Page)
--- Configs section in column 1
+
 local ConfigsSection = Page:Section({Name = "Configs", Side = 1, Icon = "97491613646216"})
 
 local ConfigName = ""
@@ -3739,7 +3738,6 @@ end
 
 Library:RefreshConfigsList(ConfigsList)
 
--- Theming section in column 2
 local ThemingSection = Page:Section({Name = "Theming", Icon = "131595494666590", Side = 1})
 for Index, Value in pairs(Library.Theme) do
 	ThemingSection:Label(Index):Colorpicker({
@@ -3752,7 +3750,6 @@ end
 })
 end
 
--- Settings section in column 2 (without tween controls)
 local SettingsSection = Page:Section({Name = "Settings", Icon = "72732892493295", Side = 2})
 
 SettingsSection:Button({
@@ -3772,3 +3769,7 @@ Library.MenuKeybind = Library.Flags["MenuKeybind"].Key
 end
 })
 end
+
+
+getgenv().Library = Library
+return Library
